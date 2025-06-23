@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - IFMine</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card glass-card">
+            <div class="auth-header">
+                <img src="assets/ifmine-icon.png" alt="IFMine" class="auth-logo">
+                <h2>Pagamento via PIX</h2>
+                <p>Complete sua compra do pacote VIP</p>
+            </div>
+            
+            <div class="payment-content" id="paymentContent">
+                <div class="payment-info">
+                    <h3>Você está comprando:</h3>
+                    <p class="vip-name" id="vipName"></p>
+                    <p class="vip-price" id="vipPrice"></p>
+                    
+                    <!-- Seção de Cupom de Desconto -->
+                    <div class="coupon-section">
+                        <h4>Cupom de desconto:</h4>
+                        <div class="coupon-input-group">
+                            <input type="text" id="couponInput" placeholder="Digite seu cupom">
+                            <button class="btn btn-secondary" id="applyCoupon">Aplicar</button>
+                        </div>
+                        <div class="coupon-message" id="couponMessage"></div>
+                        
+                        <!-- Detalhes do preço com desconto -->
+                        <div class="price-breakdown" style="display: none;">
+                            <div class="price-row">
+                                <span>Preço original:</span>
+                                <span id="originalPrice">R$ 0,00</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Desconto:</span>
+                                <span id="discount">-R$ 0,00</span>
+                            </div>
+                            <div class="price-row total">
+                                <span>Preço final:</span>
+                                <span id="finalPrice">R$ 0,00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h4>Métodos de Pagamento:</h4>
+                        <div class="method-options">
+                            <div class="method-option active" id="pixQrMethod">
+                                <i class="fas fa-qrcode"></i>
+                                <span>QR Code</span>
+                            </div>
+                            <div class="method-option" id="pixKeyMethod">
+                                <i class="fas fa-key"></i>
+                                <span>Chave PIX</span>
+                            </div>
+                            <div class="method-option" id="pixCodeMethod">
+                                <i class="fas fa-barcode"></i>
+                                <span>Código PIX</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Seção QR Code -->
+                    <div class="pix-method-section" id="qrCodeSection">
+                        <div class="pix-qrcode-container">
+                            <img src="" alt="QR Code PIX" id="pixQrCode">
+                            <p>Escaneie este QR Code com seu app bancário</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Seção Chave PIX -->
+                    <div class="pix-method-section" id="pixKeySection" style="display: none;">
+                        <div class="pix-key-container">
+                            <input type="text" id="pixKey" value="123.456.789-00" readonly>
+                            <button class="btn btn-copy" id="copyPixKey">
+                                <i class="far fa-copy"></i> Copiar
+                            </button>
+                        </div>
+                        <small>Tipo: CPF</small>
+                    </div>
+                    
+                    <!-- Seção Código PIX -->
+                    <div class="pix-method-section" id="pixCodeSection" style="display: none;">
+                        <div class="pix-code-container">
+                            <div class="pix-code-display" id="pixCodeDisplay"></div>
+                            <button class="btn btn-copy" id="copyPixCode">
+                                <i class="far fa-copy"></i> Copiar Código
+                            </button>
+                        </div>
+                        <p class="pix-code-instructions">
+                            <i class="fas fa-info-circle"></i> Cole este código no campo "Código PIX" do seu banco
+                        </p>
+                    </div>
+                    
+                    <div class="payment-amount">
+                        <h4>Valor a pagar:</h4>
+                        <div class="amount-display" id="amountDisplay">R$ 0,00</div>
+                    </div>
+                    
+                    <div class="payment-instructions">
+                        <h4>Instruções:</h4>
+                        <ol id="paymentInstructions">
+                            <li>Abra seu aplicativo bancário</li>
+                            <li>Selecione pagar via PIX</li>
+                            <li>Escaneie o QR Code, use a chave PIX ou cole o código PIX</li>
+                            <li>Confirme o valor e finalize o pagamento</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="payment-proof" id="paymentProofSection" style="display: none;">
+                        <h4>Envie o comprovante de pagamento</h4>
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Arraste e solte o comprovante aqui ou clique para selecionar</p>
+                            <input type="file" id="proofInput" accept="image/*,.pdf" style="display: none;">
+                        </div>
+                        <div class="file-preview" id="filePreview"></div>
+                        <small>Apenas imagens (JPG, PNG) ou PDF (máx. 5MB)</small>
+                    </div>
+                    
+                    <div class="payment-warning">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Após o pagamento, envie o comprovante para gerar seu código do Discord</p>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary btn-block" id="confirmPayment">Já efetuei o pagamento</button>
+            </div>
+            
+            <div class="payment-success" id="paymentSuccess" style="display: none;">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Pagamento Confirmado!</h3>
+                <p>Obrigado por adquirir o pacote VIP.</p>
+                
+                <div class="discord-code">
+                    <h4>Seu código para o Discord:</h4>
+                    <div class="code-container">
+                        <input type="text" id="discordCode" readonly>
+                        <button class="btn btn-copy" id="copyDiscordCode">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                    <small>Use este código no canal #ativar-vip do nosso Discord</small>
+                </div>
+                
+                <div class="success-actions">
+                    <a href="index.html" class="btn btn-primary">Voltar ao site</a>
+                    <a href="https://discord.gg/ifmine" class="btn btn-outline" target="_blank">
+                        <i class="fab fa-discord"></i> Entrar no Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/payment.js"></script>
+</body>
+</html>

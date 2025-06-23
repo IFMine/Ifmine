@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFMine - VIPs Create & Mekanism</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="glass-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/ifmine-logo.png" alt="IFMine Logo">
+                <h1>IFMine</h1>
+            </div>
+            <nav class="user-panel" id="userPanel">
+                <!-- Dinâmico via JS -->
+                <a href="login.html" class="btn btn-outline" id="loginBtn">Login</a>
+                <a href="register.html" class="btn btn-primary" id="registerBtn">Registrar</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Pacotes Exclusivos para o Cypher SMP</h2>
+                <p>Desbloqueie todo o potencial dos mods com nossos pacotes VIP</p>
+                <div class="hero-buttons">
+                    <a href="#vip-section" class="btn btn-primary">Ver VIPs</a>
+                    <a href="register.html" class="btn btn-outline">Começar Agora</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="vip-section" class="vip-section">
+            <h2 class="section-title">Escolha seu Pacote</h2>
+            <div class="vip-options" id="vipOptions">
+                <!-- VIP cards renderizados via JS -->
+            </div>
+        </section>
+    </main>
+    
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/ifmine-logo.png" alt="IFMine Icon">
+                <span>IFMine</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">Termos de Serviço</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Suporte</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2023 IFMine. Não afiliado à Mojang ou Microsoft.</p>
+        </div>
+    </footer>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/vip.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

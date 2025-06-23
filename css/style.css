@@ -1,0 +1,1146 @@
+:root {
+    --primary: #4CAF50;
+    --primary-dark: #388E3C;
+    --secondary: #2196F3;
+    --dark: #121212;
+    --dark-light: #1E1E1E;
+    --light: #f5f5f5;
+    --gray: #757575;
+    --error: #F44336;
+    --warning: #FFC107;
+    --create: #FFA000;
+    --mekanism: #00BCD4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+}
+
+/* Efeito de vidro (glassmorphism) */
+.glass-header, .glass-footer, .glass-card {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header */
+header.glass-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--create), var(--mekanism));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--light);
+    border: 2px solid var(--light);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Conteúdo Principal */
+.main-content {
+    padding-top: 80px;
+    min-height: 100vh;
+}
+
+.hero-section {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/minecraft-create-bg.jpg') no-repeat center center/cover;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--create), var(--mekanism));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Seção VIP */
+.vip-section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--create), var(--mekanism));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.vip-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.vip-card {
+    background-color: var(--dark-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.vip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 160, 0, 0.1), rgba(0, 188, 212, 0.1));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.vip-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.vip-card:hover::before {
+    opacity: 1;
+}
+
+.vip-card-header {
+    padding: 1.5rem;
+    background: linear-gradient(to right, var(--create), var(--mekanism));
+    color: white;
+    text-align: center;
+}
+
+.vip-card-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.vip-card-body {
+    padding: 1.5rem;
+}
+
+.vip-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.vip-features li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.vip-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.vip-price {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    color: var(--warning);
+}
+
+.vip-card-footer {
+    padding: 0 1.5rem 1.5rem;
+}
+
+/* Páginas de Autenticação */
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/minecraft-mekanism-bg.jpg') no-repeat center center/cover;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.auth-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.auth-header {
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(to right, var(--create), var(--mekanism));
+    color: white;
+}
+
+.auth-logo {
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.auth-header h2 {
+    margin-bottom: 0.5rem;
+}
+
+.auth-form {
+    padding: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.remember-me, .terms-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.forgot-password {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--gray);
+}
+
+.auth-footer a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+/* Footer */
+.glass-footer {
+    padding: 3rem 0 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.footer-logo img {
+    height: 30px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    color: var(--light);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--secondary);
+}
+
+.footer-copyright {
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--gray);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .vip-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos para Página de Pagamento */
+.payment-content {
+    padding: 2rem;
+}
+
+.payment-info {
+    margin-bottom: 2rem;
+}
+
+.vip-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 0.5rem 0;
+}
+
+.vip-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--warning);
+    margin-bottom: 1.5rem;
+}
+
+.payment-method {
+    margin-bottom: 1.5rem;
+}
+
+.pix-method {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(0, 188, 212, 0.1);
+    color: var(--mekanism);
+    border: 1px solid var(--mekanism);
+}
+
+.pix-method.selected {
+    background-color: rgba(0, 188, 212, 0.2);
+}
+
+.pix-method i {
+    font-size: 1.25rem;
+}
+
+.pix-payment {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pix-qrcode {
+    text-align: center;
+}
+
+.pix-qrcode img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.pix-code h4 {
+    margin-bottom: 0.5rem;
+}
+
+.code-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.code-container input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid var(--gray);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.9rem;
+    border-right: none;
+}
+
+.btn-copy {
+    padding: 0 1rem;
+    border-radius: 0 8px 8px 0;
+    background-color: var(--gray);
+    border: 1px solid var(--gray);
+    color: white;
+    cursor: pointer;
+}
+
+.btn-copy:hover {
+    background-color: var(--primary);
+}
+
+.payment-instructions {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.payment-instructions ol {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.payment-instructions li {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos para Sucesso de Pagamento */
+.payment-success {
+    padding: 2rem;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.discord-code {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.success-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Animação para cópia do código */
+@keyframes fadeCopy {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.copied-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    animation: fadeCopy 0.3s ease-out;
+    z-index: 1000;
+    display: none;
+}
+
+/* Estilos para upload de comprovante */
+.payment-proof {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.upload-area {
+    border: 2px dashed var(--gray);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 1rem 0;
+}
+
+.upload-area:hover, .upload-area.dragover {
+    border-color: var(--primary);
+    background-color: rgba(0, 188, 212, 0.05);
+}
+
+.upload-area i {
+    font-size: 2rem;
+    color: var(--mekanism);
+    margin-bottom: 0.5rem;
+}
+
+.file-preview {
+    margin: 1rem 0;
+}
+
+.preview-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+.preview-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.preview-item i {
+    font-size: 1.5rem;
+    color: var(--error);
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* Loading state */
+.btn-primary[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Estilos para os métodos de pagamento */
+.payment-methods {
+    margin: 1.5rem 0;
+}
+
+.method-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.method-option {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gray);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.method-option.active {
+    background-color: rgba(0, 188, 212, 0.1);
+    border-color: var(--mekanism);
+    color: var(--mekanism);
+}
+
+.method-option i {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Seções de método de pagamento */
+.pix-method-section {
+    margin: 1.5rem 0;
+}
+
+.pix-qrcode-container {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.pix-qrcode-container img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+}
+
+/* Estilos para cupom de desconto */
+.coupon-section {
+    margin: 1.5rem 0;
+}
+
+.coupon-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.coupon-input input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.alert-success {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--primary);
+}
+
+.alert-error {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: var(--error);
+}
+
+.discounted {
+    color: var(--primary);
+    position: relative;
+}
+
+.discounted::after {
+    content: attr(data-original-price);
+    position: absolute;
+    top: -20px;
+    left: 0;
+    text-decoration: line-through;
+    color: var(--gray);
+    font-size: 0.8em;
+}
+
+/* Adicione estas regras ao final do seu arquivo style.css */
+
+/* ===== MELHORIAS PARA O SISTEMA DE PAGAMENTO PIX ===== */
+
+/* Container principal do pagamento */
+.payment-content {
+    background-color: var(--dark-light);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Seção de cupom de desconto */
+.coupon-section {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.coupon-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.coupon-input-group input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--gray);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.coupon-input-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+}
+
+.coupon-message {
+    font-size: 0.9rem;
+    min-height: 20px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+.coupon-message.success {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--primary);
+    border-left: 4px solid var(--primary);
+}
+
+.coupon-message.error {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: var(--error);
+    border-left: 4px solid var(--error);
+}
+
+.coupon-message.info {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: var(--secondary);
+    border-left: 4px solid var(--secondary);
+}
+
+/* Detalhes do preço com desconto */
+.price-breakdown {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.price-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.price-row.total {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+/* Seção do código PIX */
+.pix-code-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pix-code-display {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: break-all;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid var(--gray);
+}
+
+.pix-code-instructions {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pix-code-instructions i {
+    color: var(--secondary);
+}
+
+/* Melhorias para os métodos de pagamento */
+.method-options {
+    display: flex;
+    gap: 10px;
+    margin: 1rem 0;
+}
+
+.method-option {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.method-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.method-option.active {
+    background-color: rgba(0, 188, 212, 0.2);
+    border-color: var(--mekanism);
+    color: var(--mekanism);
+}
+
+.method-option i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+/* Seções de método de pagamento */
+.pix-method-section {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pix-qrcode-container img {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Área de upload de comprovante */
+.upload-area {
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+
+.upload-area:hover, .upload-area.dragover {
+    border-color: var(--primary);
+    background-color: rgba(76, 175, 80, 0.05);
+}
+
+.upload-area i {
+    font-size: 2.5rem;
+    color: var(--mekanism);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* Preview do arquivo */
+.file-preview {
+    margin: 1rem 0;
+}
+
+.preview-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.preview-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.preview-item i.fa-file-pdf {
+    font-size: 24px;
+    color: #f44336;
+}
+
+.preview-item span {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px;
+}
+
+/* Mensagens flutuantes */
+.flash-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+    font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .method-options {
+        flex-direction: column;
+    }
+    
+    .coupon-input-group {
+        flex-direction: column;
+    }
+    
+    .pix-method-section {
+        padding: 1rem;
+    }
+    
+    .pix-code-display {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+/* Efeitos de hover e foco */
+.btn-copy:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.02);
+}
+
+.btn-remove:hover {
+    color: #d32f2f;
+    transform: scale(1.1);
+}
+
+/* Transições suaves */
+.pix-method-section, .method-option, .coupon-input-group input, 
+.btn, .upload-area, .preview-item {
+    transition: all 0.3s ease;
+}
+
+/* Melhorias na tipografia */
+.payment-info h3, .payment-methods h4, 
+.payment-instructions h4, .payment-proof h4 {
+    margin-bottom: 1rem;
+    color: var(--mekanism);
+    font-weight: 500;
+}
+
+.amount-display {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--warning);
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Botão de confirmação */
+#confirmPayment {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    padding: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Seção de sucesso */
+.payment-success {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--dark-light);
+    border-radius: 12px;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.discord-code {
+    margin: 2rem 0;
+}
+
+.code-container {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.code-container input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid var(--gray);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.success-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 2rem;
+    justify-content: center;
+}
